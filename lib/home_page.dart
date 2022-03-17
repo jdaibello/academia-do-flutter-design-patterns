@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 enum PopupMenuPages {
   singletonPattern,
   builderPattern,
+  prototypePattern,
 }
 
 class HomePage extends StatelessWidget {
@@ -24,6 +25,9 @@ class HomePage extends StatelessWidget {
                 case PopupMenuPages.builderPattern:
                   Navigator.of(context).pushNamed('/builder');
                   break;
+                case PopupMenuPages.prototypePattern:
+                  Navigator.of(context).pushNamed('/prototype');
+                  break;
               }
             },
             itemBuilder: (BuildContext context) {
@@ -35,6 +39,10 @@ class HomePage extends StatelessWidget {
                 const PopupMenuItem<PopupMenuPages>(
                   value: PopupMenuPages.builderPattern,
                   child: Text('Builder Pattern'),
+                ),
+                const PopupMenuItem<PopupMenuPages>(
+                  value: PopupMenuPages.prototypePattern,
+                  child: Text('Prototype Pattern'),
                 ),
               ];
             },

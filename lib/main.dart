@@ -1,5 +1,6 @@
 import 'package:design_patterns/home_page.dart';
 import 'package:design_patterns/modules/builder/pages/dart_builder_pattern_page.dart';
+import 'package:design_patterns/modules/prototype/pages/prototype_pattern_page.dart';
 import 'package:design_patterns/modules/singleton/pages/singleton_pattern_page.dart';
 import 'package:flutter/material.dart';
 
@@ -21,6 +22,7 @@ class MyApp extends StatelessWidget {
         '/': (_) => const HomePage(),
         '/singleton': (_) => const SingletonPattern(),
         '/builder': (_) => const DartBuilderPattern(),
+        '/prototype': (_) => const PrototypePatternPage(),
       },
     );
   }

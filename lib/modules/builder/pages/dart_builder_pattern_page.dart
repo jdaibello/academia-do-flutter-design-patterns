@@ -1,3 +1,4 @@
+import 'package:design_patterns/modules/builder/dio/custom_dio_builder.dart';
 import 'package:design_patterns/modules/builder/funcionario_builder.dart';
 import 'package:design_patterns/modules/builder/funcionario_builder_complexo.dart';
 import 'package:design_patterns/modules/builder/model/filho_model.dart';
@@ -15,6 +16,7 @@ class _DartBuilderPatternState extends State<DartBuilderPattern> {
   void initState() {
     super.initState();
 
+    // Pure Dart
     var funcionario1 = FuncionarioBuilder.instance
         .addFilho(
           FilhoModel(
@@ -48,15 +50,54 @@ class _DartBuilderPatternState extends State<DartBuilderPattern> {
         .build();
 
     debugPrint('$funcionario2');
+
+    // Dio
+    _dioRequest();
+  }
+
+  Future<void> _dioRequest() async {
+    debugPrint('###########################################################');
+    debugPrint('POST');
+
+    var resultPost = await CustomDioBuilder.instance
+        .post()
+        .path('https://jsonplaceholder.typicode.com/posts')
+        .addHeader('Content-Type', 'application/json')
+        .params()
+        .data(
+      {
+        'title': 'Título X',
+        'body': 'Body X',
+        'userId': 1,
+      },
+    ).run();
+
+    debugPrint('${resultPost.data}');
+    debugPrint('###########################################################');
+
+    debugPrint('GET com Query Parameters');
+
+    var resultGet = await CustomDioBuilder.instance
+        .get()
+        .path('https://jsonplaceholder.typicode.com/posts')
+        .params()
+        .queryParameters()
+        .addQueryParam('userId', 1)
+        .run();
+
+    debugPrint('${resultGet.data}');
+    debugPrint('###########################################################');
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Builder Pattern (Dart - debugPrint)'),
+        title: const Text('Builder Pattern'),
       ),
-      body: Container(),
+      body: const Center(
+        child: Text('Veja os debugPrints do initState no console'),
+      ),
     );
   }
 }

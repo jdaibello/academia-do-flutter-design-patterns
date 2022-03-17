@@ -1,4 +1,6 @@
-import 'package:design_patterns/singleton_pattern.dart';
+import 'package:design_patterns/home_page.dart';
+import 'package:design_patterns/modules/builder/pages/dart_builder_pattern_page.dart';
+import 'package:design_patterns/modules/singleton/pages/singleton_pattern_page.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -15,7 +17,11 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const SingletonPattern(),
+      routes: {
+        '/': (_) => const HomePage(),
+        '/singleton': (_) => const SingletonPattern(),
+        '/builder': (_) => const DartBuilderPattern(),
+      },
     );
   }
 }

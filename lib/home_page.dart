@@ -4,6 +4,7 @@ enum PopupMenuPages {
   singletonPattern,
   builderPattern,
   prototypePattern,
+  factoryPattern,
 }
 
 class HomePage extends StatelessWidget {
@@ -28,6 +29,9 @@ class HomePage extends StatelessWidget {
                 case PopupMenuPages.prototypePattern:
                   Navigator.of(context).pushNamed('/prototype');
                   break;
+                case PopupMenuPages.factoryPattern:
+                  Navigator.of(context).pushNamed('/factory');
+                  break;
               }
             },
             itemBuilder: (BuildContext context) {
@@ -43,6 +47,10 @@ class HomePage extends StatelessWidget {
                 const PopupMenuItem<PopupMenuPages>(
                   value: PopupMenuPages.prototypePattern,
                   child: Text('Prototype Pattern'),
+                ),
+                const PopupMenuItem<PopupMenuPages>(
+                  value: PopupMenuPages.factoryPattern,
+                  child: Text('Factory Pattern'),
                 ),
               ];
             },

@@ -6,6 +6,7 @@ enum PopupMenuPages {
   prototypePattern,
   factoryPattern,
   adapterPattern,
+  compositePattern,
 }
 
 class HomePage extends StatelessWidget {
@@ -36,6 +37,9 @@ class HomePage extends StatelessWidget {
                 case PopupMenuPages.adapterPattern:
                   Navigator.of(context).pushNamed('/adapter');
                   break;
+                case PopupMenuPages.compositePattern:
+                  Navigator.of(context).pushNamed('/composite');
+                  break;
               }
             },
             itemBuilder: (BuildContext context) {
@@ -59,6 +63,10 @@ class HomePage extends StatelessWidget {
                 const PopupMenuItem<PopupMenuPages>(
                   value: PopupMenuPages.adapterPattern,
                   child: Text('Adapter Pattern'),
+                ),
+                const PopupMenuItem<PopupMenuPages>(
+                  value: PopupMenuPages.compositePattern,
+                  child: Text('Composite Pattern'),
                 ),
               ];
             },

@@ -29,6 +29,8 @@ environment:
 dependencies:
   cupertino_icons: ^1.0.2
   dio: ^4.0.4
+  firebase_core: ^1.13.1
+  firebase_messaging: ^11.2.11
   flutter:
     sdk: flutter
   flutter_mobx: ^2.0.4

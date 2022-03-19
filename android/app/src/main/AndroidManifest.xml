@@ -1,5 +1,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="br.com.academiadoflutter.design_patterns">
+
+    <uses-permission android:name="android.permission.RECEIVER_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+
    <application
         android:label="design_patterns"
         android:name="${applicationName}"

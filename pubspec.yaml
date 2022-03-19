@@ -33,6 +33,7 @@ dependencies:
   firebase_messaging: ^11.2.11
   flutter:
     sdk: flutter
+  flutter_local_notifications: ^9.4.0
   flutter_mobx: ^2.0.4
   flutter_modular: ^4.4.0+1
   intl: ^0.17.0

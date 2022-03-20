@@ -1,5 +1,7 @@
+import 'dart:convert';
 import 'dart:io';
 
+import 'package:design_patterns/app/core/push_notification_strategies/push_notification_factory.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
@@ -110,6 +112,22 @@ class PushNotificationConfiguration {
   void onSelectNotification(
     String? payload,
   ) {
-    debugPrint('On notification clicked: $payload');
+    if (payload != null) {
+      debugPrint('On notification clicked: $payload');
+
+      //* With Dart Analyzer warning. Bad recommendation
+      //* Avoid single cascade (..) in expression statements
+      // PushNotificationFactory.create(jsonDecode(payload))..execute();
+
+      //* Without Dart Analyzer warning. Good recommendation
+      PushNotificationFactory.create(jsonDecode(payload)).execute();
+    } else {
+      throw Exception(
+        """
+        Mandatory "payload" field isn't defined in API request.
+        Please, check your json body and try again.
+        """,
+      );
+    }
   }
 }

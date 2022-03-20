@@ -1,4 +1,3 @@
-import 'package:design_patterns/app/core/push_notification_strategies/strategy/i_push_strategy.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
@@ -19,29 +18,16 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  // TODO: Try to save _iPushStrategy appBarTitle and bodyText with GetIt
-  IPushStrategy? _iPushStrategy;
-
-  late String title;
-  late String body;
-
   @override
   void initState() {
     super.initState();
-    _buildPage();
-  }
-
-  void _buildPage() {
-    title = _iPushStrategy!.appBarTitle;
-    body = _iPushStrategy!.bodyText;
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        // TODO: Try to do a setState when a notification message is clicked to update this title
-        title: _iPushStrategy != null ? Text(title) : const Text('Home Page'),
+        title: const Text('Home Page'),
         actions: [
           PopupMenuButton<PopupMenuPages>(
             tooltip: 'Selecione um item',
@@ -98,11 +84,8 @@ class _HomePageState extends State<HomePage> {
           ),
         ],
       ),
-      body: Center(
-        // TODO: Try to do a setState when a notification message is clicked to update this text
-        child: _iPushStrategy != null
-            ? Text(title)
-            : const Text('Selecione um pattern no menu popup'),
+      body: const Center(
+        child: Text('Selecione um pattern no menu popup'),
       ),
     );
   }

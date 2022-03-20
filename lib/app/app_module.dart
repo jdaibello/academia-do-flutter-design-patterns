@@ -5,6 +5,7 @@ import 'package:design_patterns/app/modules/factory/pages/factory_pattern_page.d
 import 'package:design_patterns/app/modules/home/pages/home_page.dart';
 import 'package:design_patterns/app/modules/prototype/pages/prototype_pattern_page.dart';
 import 'package:design_patterns/app/modules/singleton/pages/singleton_pattern_page.dart';
+import 'package:design_patterns/app/modules/stragegy/strategy_module.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
 class AppModule extends Module {
@@ -40,6 +41,10 @@ class AppModule extends Module {
         ChildRoute(
           '/singleton',
           child: (_, args) => const SingletonPattern(),
+        ),
+        ModuleRoute(
+          '/strategy',
+          module: StrategyModule(),
         ),
       ];
 }

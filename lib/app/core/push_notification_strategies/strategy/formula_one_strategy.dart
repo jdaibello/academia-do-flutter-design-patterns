@@ -1,5 +1,6 @@
 import 'package:design_patterns/app/core/push_notification_strategies/strategy/i_push_strategy.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_modular/flutter_modular.dart';
 
 class FomulaOneStrategy implements IPushStrategy {
   @override
@@ -7,11 +8,10 @@ class FomulaOneStrategy implements IPushStrategy {
     debugPrint('########################################');
     debugPrint('########## RaceStatusStrategy ##########');
     debugPrint('########################################');
+
+    Modular.to.pushNamed(
+      '/strategy/formula-one',
+      arguments: pushPayload['race_status'],
+    );
   }
-
-  @override
-  String get appBarTitle => 'Tela da Corrida';
-
-  @override
-  String get bodyText => 'Layout a ser construído';
 }
